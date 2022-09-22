@@ -6,4 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".ui.ListAnimeFragment">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_anime_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"
+        tools:listitem="@layout/list_anime_item"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout="@layout/list_anime_item"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

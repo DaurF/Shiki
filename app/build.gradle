@@ -32,6 +32,10 @@ android {
     buildFeatures {
         viewBinding true
     }
+    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {kotlinOptions {
+        freeCompilerArgs += ["-Xjvm-default=all",]
+        }
+    }
 }
 
 dependencies {
@@ -47,4 +51,13 @@ dependencies {
     // Navigation Component
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+
+    // Retrofit with Moshi converter for networking
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
+
+    // Moshi for parsing the JSON format
+    implementation "com.squareup.moshi:moshi-kotlin:$moshi_version"
+
+    // Coil
+    implementation "io.coil-kt:coil:2.2.1"
 }
