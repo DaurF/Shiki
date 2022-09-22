@@ -12,6 +12,8 @@ class ListAnimeFragment : Fragment() {
     private var _binding: FragmentListAnimeBinding? = null
     private val binding get() = _binding!!
 
+
+    // test
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
