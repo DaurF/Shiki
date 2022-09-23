@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="list_anime_image_radius">8dp</dimen>
+    <dimen name="single_anime_image_radius">6dp</dimen>
+</resources>

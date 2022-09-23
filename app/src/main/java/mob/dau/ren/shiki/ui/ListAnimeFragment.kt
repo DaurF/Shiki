@@ -6,14 +6,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import mob.dau.ren.shiki.R
+import mob.dau.ren.shiki.ShikiApplication
 import mob.dau.ren.shiki.databinding.FragmentListAnimeBinding
+import mob.dau.ren.shiki.repository.ListAnimeRepository
+import mob.dau.ren.shiki.viewmodels.Factory
 import mob.dau.ren.shiki.viewmodels.ListAnimeViewModel
 
 class ListAnimeFragment : Fragment() {
-    private val viewModel: ListAnimeViewModel by activityViewModels()
+    private val viewModel: ListAnimeViewModel by activityViewModels {
+        Factory(
+            ListAnimeRepository((activity?.application as ShikiApplication).database)
+        )
+    }
 
     private var _binding: FragmentListAnimeBinding? = null
     private val binding get() = _binding!!
@@ -31,11 +37,15 @@ class ListAnimeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         recyclerView = binding.listAnimeRecyclerView
-        val adapter = ListAnimeAdapter()
+        val adapter = ListAnimeAdapter(requireContext()) {
+            val action = ListAnimeFragmentDirections
+                .actionListAnimeFragmentToSingleItemFragment(itemId = it.id)
+            binding.root.findNavController().navigate(action)
+        }
         recyclerView.adapter = adapter
 
-        viewModel.listAnime.observe(viewLifecycleOwner) {
-            adapter.submitList(it)
+        viewModel.listAnime.observe(viewLifecycleOwner) { listAnime ->
+            adapter.submitList(listAnime)
         }
     }
 

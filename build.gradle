@@ -4,6 +4,11 @@ buildscript {
         retrofit_version = "2.9.0"
         moshi_version = "1.14.0"
         coil_version = "2.2.1"
+        room_version = "2.4.3"
+        lifecycle_version = "2.5.1"
+    }
+    dependencies {
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
     }
 }
 

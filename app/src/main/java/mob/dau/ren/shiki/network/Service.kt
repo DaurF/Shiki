@@ -6,11 +6,16 @@ import mob.dau.ren.shiki.util.BASE_URL
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Path
+import retrofit2.http.Query
 
 
 interface ShikimoriService {
-        @GET("api/animes?order=popularity&page=1&limit=50")
+    @GET("api/animes?order=popularity&page=1&limit=50")
     suspend fun fetchListAnime(): List<AnimeItem>
+
+    @GET("api/animes/{id}")
+    suspend fun fetchAnimeItem(@Path("id") id: Int): FullAnimeItem
 }
 
 object ShikimoriNetwork {
