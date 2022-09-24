@@ -17,10 +17,13 @@
     <fragment
         android:id="@+id/singleItemFragment"
         android:name="mob.dau.ren.shiki.ui.SingleItemFragment"
-        android:label="fragment_single_item"
+        android:label="{title}"
         tools:layout="@layout/fragment_single_item" >
         <argument
             android:name="itemId"
             app:argType="integer" />
+        <argument
+            android:name="title"
+            app:argType="string" />
     </fragment>
 </navigation>

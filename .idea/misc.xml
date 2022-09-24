@@ -3,11 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/User/AndroidStudioProjects/Shiki/app/src/main/res/drawable-v23/star_small.xml" value="0.1975" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Shiki/app/src/main/res/drawable/star_small.xml" value="0.1975" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Shiki/app/src/main/res/layout/activity_main.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Shiki/app/src/main/res/layout/fragment_list_anime.xml" value="0.2" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/Shiki/app/src/main/res/layout/fragment_single_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Shiki/app/src/main/res/layout/fragment_single_item.xml" value="0.25" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Shiki/app/src/main/res/layout/fragment_youtube_player.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Shiki/app/src/main/res/layout/fragment_youtube_player_dialog.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Shiki/app/src/main/res/layout/list_anime_item.xml" value="0.253125" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Shiki/app/src/main/res/layout/list_genre_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Shiki/app/src/main/res/menu/menu_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Shiki/app/src/main/res/menu/menu_list_anime.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>

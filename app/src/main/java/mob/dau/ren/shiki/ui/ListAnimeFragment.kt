@@ -1,13 +1,14 @@
 package mob.dau.ren.shiki.ui
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import mob.dau.ren.shiki.R
 import mob.dau.ren.shiki.ShikiApplication
 import mob.dau.ren.shiki.databinding.FragmentListAnimeBinding
 import mob.dau.ren.shiki.repository.ListAnimeRepository
@@ -26,6 +27,8 @@ class ListAnimeFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
 
+
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -39,7 +42,7 @@ class ListAnimeFragment : Fragment() {
         recyclerView = binding.listAnimeRecyclerView
         val adapter = ListAnimeAdapter(requireContext()) {
             val action = ListAnimeFragmentDirections
-                .actionListAnimeFragmentToSingleItemFragment(itemId = it.id)
+                .actionListAnimeFragmentToSingleItemFragment(itemId = it.id, title = it.name)
             binding.root.findNavController().navigate(action)
         }
         recyclerView.adapter = adapter
@@ -47,9 +50,150 @@ class ListAnimeFragment : Fragment() {
         viewModel.listAnime.observe(viewLifecycleOwner) { listAnime ->
             adapter.submitList(listAnime)
         }
+
+        setHasOptionsMenu(true)
     }
 
-    private fun bind() {
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_list_anime, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId) {
+            R.id.action_filter_status_anons -> {
+                item.isChecked = !item.isChecked
+                viewModel.addStatus("anons")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_status_ongoing -> {
+                item.isChecked = !item.isChecked
+                viewModel.addStatus("ongoing")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_status_released -> {
+                item.isChecked = !item.isChecked
+                viewModel.addStatus("released")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_genre_action -> {
+                item.isChecked = !item.isChecked
+                viewModel.addGenre("1")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_genre_comedy -> {
+                item.isChecked = !item.isChecked
+                viewModel.addGenre("4")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_genre_adventure -> {
+                item.isChecked = !item.isChecked
+                viewModel.addGenre("2")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_genre_drama -> {
+                item.isChecked = !item.isChecked
+                viewModel.addGenre("8")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_genre_fantasy -> {
+                item.isChecked = !item.isChecked
+                viewModel.addGenre("10")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_genre_slice_of_life -> {
+                item.isChecked = !item.isChecked
+                viewModel.addGenre("36")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_genre_school -> {
+                item.isChecked = !item.isChecked
+                viewModel.addGenre("23")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_genre_detective -> {
+                item.isChecked = !item.isChecked
+                viewModel.addGenre("7")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_genre_mecha -> {
+                item.isChecked = !item.isChecked
+                viewModel.addGenre("18")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_genre_supernatural -> {
+                item.isChecked = !item.isChecked
+                viewModel.addGenre("37")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_genre_sport -> {
+                item.isChecked = !item.isChecked
+                viewModel.addGenre("30")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_genre_horror -> {
+                item.isChecked = !item.isChecked
+                viewModel.addGenre("14")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_genre_thriller -> {
+                item.isChecked = !item.isChecked
+                viewModel.addGenre("41")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_genre_ecchi -> {
+                item.isChecked = !item.isChecked
+                viewModel.addGenre("9")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_genre_dementia -> {
+                item.isChecked = !item.isChecked
+                viewModel.addGenre("5")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_genre_vampires -> {
+                item.isChecked = !item.isChecked
+                viewModel.addGenre("32")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_genre_harem -> {
+                item.isChecked = !item.isChecked
+                viewModel.addGenre("35")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_genre_demons -> {
+                item.isChecked = !item.isChecked
+                viewModel.addGenre("6")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_genre_kids -> {
+                item.isChecked = !item.isChecked
+                viewModel.addGenre("15")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
 
     }
 }

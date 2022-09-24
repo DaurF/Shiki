@@ -1,5 +1,15 @@
 <resources>
     <string name="app_name">Shiki</string>
-    <string name="episodes_placeholder">Episodes %d</string>
-    <string name="tv_label">TV Series</string>
+    <string name="episodes_placeholder">Эпизодов %d</string>
+    <string name="tv_label">ТВ Сериал</string>
+    <string name="film_label">Фильм</string>
+    <string name="duration_label">%d с, %s минут</string>
+
+    <string name="G_label">G</string>
+    <string name="R_label">R-17</string>
+    <string name="PG_label">PG-13</string>
+    <string name="PGch_label">PG</string>
+    <string name="Rplus_label">R+</string>
+    <string name="none_label">N/A</string>
+
 </resources>

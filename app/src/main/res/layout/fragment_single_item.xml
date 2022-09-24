@@ -1,111 +1,189 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.SingleItemFragment">
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/left_well"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="8dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/right_well"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="8dp" />
-
-    <TextView
-        android:id="@+id/title_anime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="2dp"
-        android:textSize="28sp"
-        app:layout_constraintStart_toStartOf="@id/left_well"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Death Note" />
-
-    <TextView
-        android:id="@+id/kind_anime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="4dp"
-        android:textAppearance="?attr/textAppearanceBody1"
-        app:layout_constraintStart_toStartOf="@id/left_well"
-        app:layout_constraintTop_toBottomOf="@id/title_anime"
-        tools:text="TV Series" />
-
-    <TextView
-        android:id="@+id/episodes_anime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:padding="4dp"
-        android:textAppearance="?attr/textAppearanceBody1"
-        app:layout_constraintStart_toStartOf="@id/left_well"
-        app:layout_constraintTop_toBottomOf="@id/kind_anime"
-        tools:text="12 episodes" />
-
-    <ImageView
-        android:id="@+id/preview_anime"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="10dp"
-        android:adjustViewBounds="false"
-        android:cropToPadding="false"
-        android:scaleType="centerCrop"
-        app:layout_constraintDimensionRatio="h,5:3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/episodes_anime"
-        tools:src="@tools:sample/backgrounds/scenic" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="8dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/preview_anime">
+        android:layout_height="match_parent">
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/anime_image"
-            android:layout_width="143dp"
-            android:layout_height="200dp"
-            android:scaleType="fitXY"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@tools:sample/backgrounds/scenic" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/genres_anime"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/left_well"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintStart_toEndOf="@id/anime_image"
-            app:layout_constraintTop_toTopOf="parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="8dp" />
 
-            tools:listitem="@layout/list_genre_item" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/right_well"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="8dp" />
 
         <TextView
-            android:id="@+id/description_anime"
-            android:layout_width="0dp"
+            android:id="@+id/title_anime"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:textAlignment="viewStart"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:textSize="28sp"
+            app:layout_constraintStart_toStartOf="@id/left_well"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Death Note" />
+
+        <TextView
+            android:id="@+id/kind_anime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:textAppearance="?attr/textAppearanceBody1"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/title_anime"
+            app:layout_constraintTop_toBottomOf="@id/title_anime"
+            tools:text="TV Series" />
+
+        <TextView
+            android:id="@+id/episodes_anime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textAppearance="?attr/textAppearanceBody1"
+            app:layout_constraintStart_toStartOf="@id/title_anime"
+            app:layout_constraintTop_toBottomOf="@id/kind_anime"
+            tools:text="12 episodes" />
+
+        <ImageView
+            android:id="@+id/preview_anime"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:adjustViewBounds="false"
+            android:cropToPadding="false"
+            android:scaleType="centerCrop"
+            app:layout_constraintDimensionRatio="h,5:3"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/genres_anime"
-            app:layout_constraintTop_toBottomOf="@id/genres_anime"
-            tools:text="Description" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/episodes_anime"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+        <View
+            android:id="@+id/divider_1"
+            style="@style/Divider"
+            app:layout_constraintTop_toTopOf="@id/preview_anime"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <View
+            android:id="@+id/divider_2"
+            style="@style/Divider"
+            app:layout_constraintBottom_toBottomOf="@id/preview_anime"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <ImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            app:layout_constraintStart_toStartOf="@id/preview_anime"
+            app:layout_constraintEnd_toEndOf="@id/preview_anime"
+            app:layout_constraintTop_toTopOf="@id/preview_anime"
+            app:layout_constraintBottom_toBottomOf="@id/preview_anime"
+            android:src="@drawable/play" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/description_block"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/preview_anime">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/anime_image"
+                android:layout_width="143dp"
+                android:layout_height="200dp"
+                android:scaleType="fitXY"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/genres_anime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintStart_toEndOf="@id/anime_image"
+                app:layout_constraintTop_toTopOf="parent"
+
+                tools:listitem="@layout/list_genre_item" />
+
+            <TextView
+                android:id="@+id/description_anime"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:textAlignment="viewStart"
+                android:textAppearance="?attr/textAppearanceBody1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/genres_anime"
+                app:layout_constraintTop_toBottomOf="@id/genres_anime"
+                tools:text="Description" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/divider"
+            style="@style/Divider"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/description_block"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="12dp">
+            <TextView
+                android:id="@+id/score_anime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/star_small"
+                android:gravity="center_vertical"
+                android:drawablePadding="5dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:textAppearance="?attr/textAppearanceBody1"
+                tools:text="9.2/10"/>
+
+            <TextView
+                android:id="@+id/status_anime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Вышло"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:textAppearance="?attr/textAppearanceBody1" />
+
+            <TextView
+                android:id="@+id/rating_anime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="PG-13"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:textAppearance="?attr/textAppearanceBody1" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -1,5 +1,6 @@
 package mob.dau.ren.shiki.viewmodels
 
+import android.util.Log
 import androidx.lifecycle.*
 import kotlinx.coroutines.launch
 import mob.dau.ren.shiki.network.AnimeItem
@@ -14,18 +15,42 @@ class ListAnimeViewModel(private val repository: ListAnimeRepository) : ViewMode
     private val _singleAnime = MutableLiveData<FullAnimeItem>()
     val singleAnime: LiveData<FullAnimeItem> get() = _singleAnime
 
-    init {
-        refreshData()
-    }
+    private val statuses: MutableList<String> = mutableListOf()
+    private val genres: MutableList<String> = mutableListOf()
 
-    private fun refreshData() = viewModelScope.launch {
-        _listAnime.value = ShikimoriNetwork.retrofitService.fetchListAnime()
+    init {
+        fetchAnimeByStatusAndGenre()
     }
 
     fun refreshItem(id: Int) {
         viewModelScope.launch {
             _singleAnime.value = ShikimoriNetwork.retrofitService.fetchAnimeItem(id)
         }
+    }
+
+    fun addGenre(genre: String) {
+        if(genres.contains(genre)) {
+            genres.remove(genre)
+            return
+        }
+        genres.add(genre)
+    }
+
+    fun addStatus(status: String) {
+        if(statuses.contains(status)){
+            statuses.remove(status)
+            return
+        }
+        statuses.add(status)
+    }
+
+    fun fetchAnimeByStatusAndGenre() = viewModelScope.launch {
+        val statusesStr = statuses.toString().replace("[", "")
+            .replace("]", "").replace(" ", "")
+        val genresStr = genres.toString().replace("[", "")
+            .replace("]", "").replace(" ", "")
+        Log.d("LOX", "$statusesStr : $genresStr")
+        _listAnime.value = ShikimoriNetwork.retrofitService.fetchAnimeByStatusAndGenre(statusesStr, genresStr)
     }
 }
 

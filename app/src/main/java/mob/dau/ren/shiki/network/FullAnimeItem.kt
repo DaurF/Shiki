@@ -8,9 +8,13 @@ data class FullAnimeItem(
     val image: Image,
     val kind: String,
     val episodes: Int,
-    val videos: List<Video>,
+    val videos: List<Video>?,
     val genres: List<Genre>,
-    val description: String
+    val description: String?,
+    val score: String,
+    val rating: String,
+    val duration: String,
+    val status: String
 )
 
 data class Video(

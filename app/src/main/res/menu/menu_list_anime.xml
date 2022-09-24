@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:icon="@drawable/ic_search"
+        android:title="Search"
+        app:showAsAction="always" />
+    <item
+        android:icon="@drawable/ic_filter_list"
+        android:title="Filter"
+        app:showAsAction="always">
+        <menu>
+            <item
+                android:id="@+id/action_filter_by_genre"
+                android:title="Жанр">
+                <menu>
+                    <item
+                        android:id="@+id/action_filter_genre_action"
+                        android:checkable="true"
+                        android:title="Экшен" />
+                    <item
+                        android:id="@+id/action_filter_genre_comedy"
+                        android:checkable="true"
+                        android:title="Комедия" />
+                    <item
+                        android:id="@+id/action_filter_genre_adventure"
+                        android:checkable="true"
+                        android:title="Приключения" />
+                    <item
+                        android:id="@+id/action_filter_genre_drama"
+                        android:checkable="true"
+                        android:title="Драма" />
+                    <item
+                        android:id="@+id/action_filter_genre_fantasy"
+                        android:checkable="true"
+                        android:title="Фэнтези" />
+                    <item
+                        android:id="@+id/action_filter_genre_slice_of_life"
+                        android:checkable="true"
+                        android:title="Повседневность" />
+                    <item
+                        android:id="@+id/action_filter_genre_school"
+                        android:checkable="true"
+                        android:title="Школа" />
+                    <item
+                        android:id="@+id/action_filter_genre_senen"
+                        android:checkable="true"
+                        android:title="Сёнэн" />
+                    <item
+                        android:id="@+id/action_filter_genre_detective"
+                        android:checkable="true"
+                        android:title="Детектив" />
+                    <item
+                        android:id="@+id/action_filter_genre_mecha"
+                        android:checkable="true"
+                        android:title="Меха" />
+                    <item
+                        android:id="@+id/action_filter_genre_supernatural"
+                        android:checkable="true"
+                        android:title="Сверхъестественное" />
+                    <item
+                        android:id="@+id/action_filter_genre_sport"
+                        android:checkable="true"
+                        android:title="Спорт" />
+                    <item
+                        android:id="@+id/action_filter_genre_horror"
+                        android:checkable="true"
+                        android:title="Хоррор" />
+                    <item
+                        android:id="@+id/action_filter_genre_thriller"
+                        android:checkable="true"
+                        android:title="Триллер" />
+                    <item
+                        android:id="@+id/action_filter_genre_ecchi"
+                        android:checkable="true"
+                        android:title="Этти" />
+                    <item
+                        android:id="@+id/action_filter_genre_dementia"
+                        android:checkable="true"
+                        android:title="Безумие" />
+                    <item
+                        android:id="@+id/action_filter_genre_vampires"
+                        android:checkable="true"
+                        android:title="Вампиры" />
+                    <item
+                        android:id="@+id/action_filter_genre_harem"
+                        android:checkable="true"
+                        android:title="Гарем" />
+                    <item
+                        android:id="@+id/action_filter_genre_demons"
+                        android:checkable="true"
+                        android:title="Демоны" />
+                    <item
+                        android:id="@+id/action_filter_genre_kids"
+                        android:checkable="true"
+                        android:title="Детское" />
+                </menu>
+            </item>
+            <item
+                android:id="@+id/action_filter_by_status"
+                android:title="Статус">
+                <menu>
+                    <item
+                        android:id="@+id/action_filter_status_anons"
+                        android:checkable="true"
+                        android:title="Анонсировано"
+                        app:showAsAction="never" />
+                    <item
+                        android:id="@+id/action_filter_status_ongoing"
+                        android:checkable="true"
+                        android:title="Выходит"
+                        app:showAsAction="never" />
+                    <item
+                        android:id="@+id/action_filter_status_released"
+                        android:checkable="true"
+                        android:title="Вышедшие"
+                        app:showAsAction="never" />
+                </menu>
+            </item>
+        </menu>
+    </item>
+</menu>
