@@ -16,7 +16,8 @@ interface ShikimoriService {
 
     @GET("api/animes?order=popularity&page=1&limit=50")
     suspend fun fetchAnimeByStatusAndGenre(@Query("status") status: String,
-                                           @Query("genre") genre: String): List<AnimeItem>
+                                           @Query("genre") genre: String,
+                                           @Query("studio") studio: String): List<AnimeItem>
 
     @GET("api/animes/{id}")
     suspend fun fetchAnimeItem(@Path("id") id: Int): FullAnimeItem

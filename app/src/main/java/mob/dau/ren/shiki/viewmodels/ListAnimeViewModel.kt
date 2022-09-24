@@ -17,6 +17,7 @@ class ListAnimeViewModel(private val repository: ListAnimeRepository) : ViewMode
 
     private val statuses: MutableList<String> = mutableListOf()
     private val genres: MutableList<String> = mutableListOf()
+    private val studios: MutableList<String> = mutableListOf()
 
     init {
         fetchAnimeByStatusAndGenre()
@@ -44,13 +45,24 @@ class ListAnimeViewModel(private val repository: ListAnimeRepository) : ViewMode
         statuses.add(status)
     }
 
+    fun addStudio(studio: String) {
+        if(studios.contains(studio)){
+            studios.remove(studio)
+            return
+        }
+        studios.add(studio)
+    }
+
     fun fetchAnimeByStatusAndGenre() = viewModelScope.launch {
         val statusesStr = statuses.toString().replace("[", "")
             .replace("]", "").replace(" ", "")
         val genresStr = genres.toString().replace("[", "")
             .replace("]", "").replace(" ", "")
-        Log.d("LOX", "$statusesStr : $genresStr")
-        _listAnime.value = ShikimoriNetwork.retrofitService.fetchAnimeByStatusAndGenre(statusesStr, genresStr)
+        val studiosStr = studios.toString().replace("[", "")
+            .replace("]", "").replace(" ", "")
+        Log.d("LOX", "$statusesStr : $genresStr : $studiosStr")
+        _listAnime.value = ShikimoriNetwork.retrofitService
+            .fetchAnimeByStatusAndGenre(statusesStr, genresStr, studiosStr)
     }
 }
 

@@ -117,6 +117,52 @@
                         app:showAsAction="never" />
                 </menu>
             </item>
+            <item
+                android:id="@+id/action_filter_by_studio"
+                android:title="Студия">
+                <menu>
+                    <item
+                        android:id="@+id/action_filter_studio_toei"
+                        android:checkable="true"
+                        android:title="Toei Animation"
+                        app:showAsAction="never" />
+                    <item
+                        android:id="@+id/action_filter_studio_sunrise"
+                        android:checkable="true"
+                        android:title="Sunrise"
+                        app:showAsAction="never" />
+                    <item
+                        android:id="@+id/action_filter_studio_madhouse"
+                        android:checkable="true"
+                        android:title="Madhouse"
+                        app:showAsAction="never" />
+                    <item
+                        android:id="@+id/action_filter_studio_jcstaff"
+                        android:checkable="true"
+                        android:title="J.C. Staff"
+                        app:showAsAction="never" />
+                    <item
+                        android:id="@+id/action_filter_studio_ig"
+                        android:checkable="true"
+                        android:title="Production I.G."
+                        app:showAsAction="never" />
+                    <item
+                        android:id="@+id/action_filter_studio_tms"
+                        android:checkable="true"
+                        android:title="TMS Entertainment"
+                        app:showAsAction="never" />
+                    <item
+                        android:id="@+id/action_filter_studio_deen"
+                        android:checkable="true"
+                        android:title="Studio Deen"
+                        app:showAsAction="never" />
+                    <item
+                        android:id="@+id/action_filter_studio_pierrot"
+                        android:checkable="true"
+                        android:title="Pierrot"
+                        app:showAsAction="never" />
+                </menu>
+            </item>
         </menu>
     </item>
 </menu>

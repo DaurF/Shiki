@@ -192,6 +192,54 @@ class ListAnimeFragment : Fragment() {
                 viewModel.fetchAnimeByStatusAndGenre()
                 true
             }
+            R.id.action_filter_studio_toei -> {
+                item.isChecked = !item.isChecked
+                viewModel.addStudio("15")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_studio_sunrise -> {
+                item.isChecked = !item.isChecked
+                viewModel.addStudio("14")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_studio_madhouse -> {
+                item.isChecked = !item.isChecked
+                viewModel.addStudio("11")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_studio_jcstaff -> {
+                item.isChecked = !item.isChecked
+                viewModel.addStudio("7")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_studio_ig -> {
+                item.isChecked = !item.isChecked
+                viewModel.addStudio("10")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_studio_tms -> {
+                item.isChecked = !item.isChecked
+                viewModel.addStudio("73")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_studio_deen -> {
+                item.isChecked = !item.isChecked
+                viewModel.addStudio("37")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_studio_pierrot -> {
+                item.isChecked = !item.isChecked
+                viewModel.addStudio("1")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
 
