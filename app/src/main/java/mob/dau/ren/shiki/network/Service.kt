@@ -14,11 +14,16 @@ interface ShikimoriService {
     @GET("api/animes?order=popularity&page=1&limit=50")
     suspend fun fetchListAnime(): List<AnimeItem>
 
-    @GET("api/animes?order=popularity&page=1&limit=50")
+    @GET("api/animes")
     suspend fun fetchAnimeByStatusAndGenre(
         @Query("status") status: String,
         @Query("genre") genre: String,
-        @Query("studio") studio: String
+        @Query("studio") studio: String,
+        @Query("search") search: String = "",
+        @Query("order") order: String,
+        @Query("page") page: Int = 1,
+        @Query("limit") limit: Int = 50,
+        @Query("rating") rating: String = "g,pg,pg_13,r,r_plus"
     ): List<AnimeItem>
 
     @GET("api/animes/{id}")

@@ -3,6 +3,7 @@ package mob.dau.ren.shiki.ui
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.*
+import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
@@ -11,6 +12,7 @@ import mob.dau.ren.shiki.R
 import mob.dau.ren.shiki.ShikiApplication
 import mob.dau.ren.shiki.databinding.FragmentListAnimeBinding
 import mob.dau.ren.shiki.repository.ListAnimeRepository
+import mob.dau.ren.shiki.util.onQueryTextChanged
 import mob.dau.ren.shiki.viewmodels.Factory
 import mob.dau.ren.shiki.viewmodels.ListAnimeViewModel
 
@@ -26,8 +28,8 @@ class ListAnimeFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
 
+    private var id: Int? = null
 
-    @SuppressLint("ClickableViewAccessibility")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -55,6 +57,14 @@ class ListAnimeFragment : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_list_anime, menu)
+
+        val searchItem = menu.findItem(R.id.action_search)
+        val searchView = searchItem.actionView as androidx.appcompat.widget.SearchView
+
+        searchView.onQueryTextChanged {
+            viewModel.setSearchQuery(it)
+            viewModel.fetchAnimeByStatusAndGenre()
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -379,6 +389,5 @@ class ListAnimeFragment : Fragment() {
             }
             else -> super.onOptionsItemSelected(item)
         }
-
     }
 }

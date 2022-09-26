@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/dark_gray"
     tools:context=".ui.SingleItemFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,6 +32,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:textSize="28sp"
+            android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="@id/left_well"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Death Note" />
@@ -39,6 +41,7 @@
             android:id="@+id/kind_anime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:textAppearance="?attr/textAppearanceBody1"
             app:layout_constraintStart_toStartOf="@id/title_anime"
             app:layout_constraintTop_toBottomOf="@id/title_anime"
@@ -49,6 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:textColor="@color/white"
             android:textAppearance="?attr/textAppearanceBody1"
             app:layout_constraintStart_toStartOf="@id/title_anime"
             app:layout_constraintTop_toBottomOf="@id/kind_anime"
@@ -147,8 +151,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:background="@color/white_gray"
-            android:paddingVertical="8dp"
+            android:background="@color/gray_300"
+            android:paddingVertical="12dp"
             app:layout_constraintTop_toBottomOf="@id/divider">
 
             <TextView
@@ -156,6 +160,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:textColor="@color/white"
                 android:drawableStart="@drawable/star_small"
                 android:drawablePadding="5dp"
                 android:gravity="center_vertical"
@@ -169,6 +174,7 @@
                 android:id="@+id/status_anime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:textAppearance="?attr/textAppearanceBody1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -183,6 +189,7 @@
                 android:layout_marginEnd="8dp"
                 android:textAppearance="?attr/textAppearanceBody1"
                 android:textStyle="bold"
+                android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -195,6 +202,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:textAlignment="viewStart"
+            android:textColor="@color/white"
             android:textAppearance="?attr/textAppearanceBody1"
             app:layout_constraintEnd_toEndOf="@id/right_well"
             app:layout_constraintStart_toStartOf="@id/left_well"

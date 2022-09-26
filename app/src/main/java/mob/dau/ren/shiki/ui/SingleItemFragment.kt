@@ -61,7 +61,11 @@ class SingleItemFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         recyclerView = binding.genresAnime
-        val adapter = ListGenresAdapter()
+        val adapter = ListGenreAdapter {
+            activity?.onBackPressed()
+            viewModel.setGenre(it.id.toString())
+            viewModel.fetchAnimeByStatusAndGenre()
+        }
         recyclerView.adapter = adapter
 
         viewModel.singleAnime.observe(viewLifecycleOwner) {
@@ -82,7 +86,10 @@ class SingleItemFragment : Fragment() {
                         openVideo(video.videoUrl)
                     }
                 }
-                uploadImage(studioImage, it.studios[0].getFullImageUrl())
+                it?.studios?.let { it1 ->
+                    uploadImage(studioImage, it1[0]?.getFullImageUrl())
+                    it1[0]?.id?.let { it2 -> setStudioListener(studioImage, it2) }
+                }
                 uploadShapeableImage(animeImage, BASE_URL + it.image.url)
                 setScore(scoreAnime, it.score)
                 setRating(ratingAnime, it.rating)
@@ -90,6 +97,14 @@ class SingleItemFragment : Fragment() {
                 adapter.submitList(it.genres)
                 it?.description?.let { it1 -> setDescription(descriptionAnime, it1) }
             }
+        }
+    }
+
+    private fun setStudioListener(imageView: ImageView, studioId: Int) {
+        imageView.setOnClickListener {
+            activity?.onBackPressed()
+            viewModel.setStudio(studioId.toString())
+            viewModel.fetchAnimeByStatusAndGenre()
         }
     }
 

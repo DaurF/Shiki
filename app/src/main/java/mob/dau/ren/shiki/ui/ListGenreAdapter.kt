@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import mob.dau.ren.shiki.databinding.ListGenreItemBinding
 import mob.dau.ren.shiki.network.Genre
 
-class ListGenresAdapter : ListAdapter<Genre, ListGenresAdapter.GenreViewHolder>(DiffCallback) {
+class ListGenreAdapter(
+    private val onItemClick: (Genre) -> Unit
+) : ListAdapter<Genre, ListGenreAdapter.GenreViewHolder>(DiffCallback) {
     inner class GenreViewHolder(private val binding: ListGenreItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(genre: Genre) {
@@ -27,6 +29,9 @@ class ListGenresAdapter : ListAdapter<Genre, ListGenresAdapter.GenreViewHolder>(
     override fun onBindViewHolder(holder: GenreViewHolder, position: Int) {
         val item = getItem(position)
         holder.bind(item)
+        holder.itemView.setOnClickListener {
+            onItemClick(item)
+        }
     }
 
     companion object DiffCallback : DiffUtil.ItemCallback<Genre>() {

@@ -1,5 +1,7 @@
 package mob.dau.ren.shiki.util
 
+import androidx.appcompat.widget.SearchView
+
 private val PUNCTUATION = listOf(", ", "; ", ": ", " ")
 
 fun String.smartTruncate(length: Int): String {
@@ -28,3 +30,4 @@ fun String.smartTruncate(length: Int): String {
     }
     return builder.toString()
 }
+

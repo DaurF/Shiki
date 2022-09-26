@@ -2,6 +2,7 @@ package mob.dau.ren.shiki.viewmodels
 
 import android.util.Log
 import androidx.lifecycle.*
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import mob.dau.ren.shiki.network.AnimeItem
 import mob.dau.ren.shiki.network.FullAnimeItem
@@ -19,6 +20,8 @@ class ListAnimeViewModel(private val repository: ListAnimeRepository) : ViewMode
     private val genres: MutableList<String> = mutableListOf()
     private val studios: MutableList<String> = mutableListOf()
 
+    private var searchQuery: String = ""
+
     init {
         fetchAnimeByStatusAndGenre()
     }
@@ -27,6 +30,10 @@ class ListAnimeViewModel(private val repository: ListAnimeRepository) : ViewMode
         viewModelScope.launch {
             _singleAnime.value = ShikimoriNetwork.retrofitService.fetchAnimeItem(id)
         }
+    }
+
+    fun setSearchQuery(query: String) {
+        searchQuery = query
     }
 
     fun addGenre(genre: String) {
@@ -45,6 +52,20 @@ class ListAnimeViewModel(private val repository: ListAnimeRepository) : ViewMode
         statuses.add(status)
     }
 
+    fun setGenre(genre: String) {
+        genres.apply {
+            this.clear()
+            this.add(genre)
+        }
+    }
+
+    fun setStudio(studio: String) {
+        studios.apply {
+            this.clear()
+            this.add(studio)
+        }
+    }
+
     fun addStudio(studio: String) {
         if (studios.contains(studio)) {
             studios.remove(studio)
@@ -56,13 +77,13 @@ class ListAnimeViewModel(private val repository: ListAnimeRepository) : ViewMode
     fun fetchAnimeByStatusAndGenre() = viewModelScope.launch {
         val statusesStr = statuses.toString().replace("[", "")
             .replace("]", "").replace(" ", "")
-        val genresStr = genres.toString().replace("[", "")
+        var genresStr = genres.toString().replace("[", "")
             .replace("]", "").replace(" ", "")
         val studiosStr = studios.toString().replace("[", "")
             .replace("]", "").replace(" ", "")
         Log.d("LOX", "$statusesStr : $genresStr : $studiosStr")
         _listAnime.value = ShikimoriNetwork.retrofitService
-            .fetchAnimeByStatusAndGenre(statusesStr, genresStr, studiosStr)
+            .fetchAnimeByStatusAndGenre(statusesStr, genresStr, studiosStr, searchQuery, "popularity")
     }
 }
 

@@ -16,7 +16,7 @@ data class FullAnimeItem(
     val rating: String,
     val duration: String,
     val status: String,
-    val studios: List<Studio>
+    val studios: List<Studio?>?
 )
 
 data class Video(
@@ -31,7 +31,7 @@ data class Genre(
 
 data class Studio(
     val id: Int,
-    val image: String
+    val image: String?
 )
 
 fun Studio.getFullImageUrl(): String {
