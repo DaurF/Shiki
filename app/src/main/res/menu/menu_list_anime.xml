@@ -161,6 +161,122 @@
                         android:checkable="true"
                         android:title="Pierrot"
                         app:showAsAction="never" />
+                    <item
+                        android:id="@+id/action_filter_studio_olm"
+                        android:checkable="true"
+                        android:title="OLM"
+                        app:showAsAction="never" />
+                    <item
+                        android:id="@+id/action_filter_studio_mappa"
+                        android:checkable="true"
+                        android:title="MAPPA"
+                        app:showAsAction="never" />
+                    <item
+                        android:id="@+id/action_filter_studio_a1"
+                        android:checkable="true"
+                        android:title="A-1 Pictures"
+                        app:showAsAction="never" />
+                    <item
+                        android:id="@+id/action_filter_studio_comix"
+                        android:checkable="true"
+                        android:title="CoMix Wave Films"
+                        app:showAsAction="never" />
+                    <item
+                        android:id="@+id/action_filter_studio_ghibli"
+                        android:checkable="true"
+                        android:title="Studio Ghibli"
+                        app:showAsAction="never" />
+                    <item
+                        android:id="@+id/action_filter_studio_wit"
+                        android:checkable="true"
+                        android:title="Wit Studio"
+                        app:showAsAction="never" />
+                    <item
+                        android:id="@+id/action_filter_studio_kyoto"
+                        android:checkable="true"
+                        android:title="Kyoto Animation"
+                        app:showAsAction="never" />
+                    <item
+                        android:id="@+id/action_filter_studio_ufotable"
+                        android:checkable="true"
+                        android:title="ufotable"
+                        app:showAsAction="never" />
+                    <item
+                        android:id="@+id/action_filter_studio_white_fox"
+                        android:checkable="true"
+                        android:title="White Fox"
+                        app:showAsAction="never" />
+                    <item
+                        android:id="@+id/action_filter_studio_bones"
+                        android:checkable="true"
+                        android:title="Bones"
+                        app:showAsAction="never" />
+                    <item
+                        android:id="@+id/action_filter_studio_brains_base"
+                        android:checkable="true"
+                        android:title="Brain's Base"
+                        app:showAsAction="never" />
+                    <item
+                        android:id="@+id/action_filter_studio_lerche"
+                        android:checkable="true"
+                        android:title="Lerche"
+                        app:showAsAction="never" />
+                    <item
+                        android:id="@+id/action_filter_studio_trigger"
+                        android:checkable="true"
+                        android:title="TRIGGER"
+                        app:showAsAction="never" />
+                    <item
+                        android:id="@+id/action_filter_studio_pa"
+                        android:checkable="true"
+                        android:title="P.A. Works"
+                        app:showAsAction="never" />
+                    <item
+                        android:id="@+id/action_filter_studio_nippon"
+                        android:checkable="true"
+                        android:title="Nippon Animation"
+                        app:showAsAction="never" />
+                    <item
+                        android:id="@+id/action_filter_studio_shin_ei"
+                        android:checkable="true"
+                        android:title="Shin-Ei Animation"
+                        app:showAsAction="never" />
+
+                    <item
+                        android:id="@+id/action_filter_studio_aic"
+                        android:checkable="true"
+                        android:title="AIC"
+                        app:showAsAction="never" />
+                    <item
+                        android:id="@+id/action_filter_studio_tatsunoko"
+                        android:checkable="true"
+                        android:title="Tatsunoko Production"
+                        app:showAsAction="never" />
+                    <item
+                        android:id="@+id/action_filter_studio_xebec"
+                        android:checkable="true"
+                        android:title="Xebec"
+                        app:showAsAction="never" />
+                    <item
+                        android:id="@+id/action_filter_studio_gonzo"
+                        android:checkable="true"
+                        android:title="Gonzo"
+                        app:showAsAction="never" />
+                    <item
+                        android:id="@+id/action_filter_studio_feel"
+                        android:checkable="true"
+                        android:title="feel."
+                        app:showAsAction="never" />
+                    <item
+                        android:id="@+id/action_filter_studio_shaft"
+                        android:checkable="true"
+                        android:title="Shaft"
+                        app:showAsAction="never" />
+                    <item
+                        android:id="@+id/action_filter_studio_silverlink"
+                        android:checkable="true"
+                        android:title="SILVER LINK."
+                        app:showAsAction="never" />
                 </menu>
             </item>
         </menu>

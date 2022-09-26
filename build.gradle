@@ -6,6 +6,8 @@ buildscript {
         coil_version = "2.2.1"
         room_version = "2.4.3"
         lifecycle_version = "2.5.1"
+        glide_version = "4.13.2"
+        datastore_version = "1.0.0"
     }
     dependencies {
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"

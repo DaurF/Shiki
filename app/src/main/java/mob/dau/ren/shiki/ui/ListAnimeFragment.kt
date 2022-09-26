@@ -2,7 +2,6 @@ package mob.dau.ren.shiki.ui
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -59,7 +58,7 @@ class ListAnimeFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId) {
+        return when (item.itemId) {
             R.id.action_filter_status_anons -> {
                 item.isChecked = !item.isChecked
                 viewModel.addStatus("anons")
@@ -237,6 +236,144 @@ class ListAnimeFragment : Fragment() {
             R.id.action_filter_studio_pierrot -> {
                 item.isChecked = !item.isChecked
                 viewModel.addStudio("1")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_studio_olm -> {
+                item.isChecked = !item.isChecked
+                viewModel.addStudio("28")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_studio_mappa -> {
+                item.isChecked = !item.isChecked
+                viewModel.addStudio("569")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_studio_a1 -> {
+                item.isChecked = !item.isChecked
+                viewModel.addStudio("56")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_studio_comix -> {
+                item.isChecked = !item.isChecked
+                viewModel.addStudio("291")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_studio_ghibli -> {
+                item.isChecked = !item.isChecked
+                viewModel.addStudio("21")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_studio_wit -> {
+                item.isChecked = !item.isChecked
+                viewModel.addStudio("858")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_studio_kyoto -> {
+                item.isChecked = !item.isChecked
+                viewModel.addStudio("2")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_studio_ufotable -> {
+                item.isChecked = !item.isChecked
+                viewModel.addStudio("43")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_studio_white_fox -> {
+                item.isChecked = !item.isChecked
+                viewModel.addStudio("314")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_studio_bones -> {
+                item.isChecked = !item.isChecked
+                viewModel.addStudio("4")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_studio_brains_base -> {
+                item.isChecked = !item.isChecked
+                viewModel.addStudio("112")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_studio_lerche -> {
+                item.isChecked = !item.isChecked
+                viewModel.addStudio("456")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_studio_trigger -> {
+                item.isChecked = !item.isChecked
+                viewModel.addStudio("803")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_studio_pa -> {
+                item.isChecked = !item.isChecked
+                viewModel.addStudio("132")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_studio_nippon -> {
+                item.isChecked = !item.isChecked
+                viewModel.addStudio("22")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_studio_shin_ei -> {
+                item.isChecked = !item.isChecked
+                viewModel.addStudio("247")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_studio_aic -> {
+                item.isChecked = !item.isChecked
+                viewModel.addStudio("48")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_studio_tatsunoko -> {
+                item.isChecked = !item.isChecked
+                viewModel.addStudio("103")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_studio_xebec -> {
+                item.isChecked = !item.isChecked
+                viewModel.addStudio("27")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_studio_gonzo -> {
+                item.isChecked = !item.isChecked
+                viewModel.addStudio("3")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_studio_feel -> {
+                item.isChecked = !item.isChecked
+                viewModel.addStudio("91")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_studio_shaft -> {
+                item.isChecked = !item.isChecked
+                viewModel.addStudio("44")
+                viewModel.fetchAnimeByStatusAndGenre()
+                true
+            }
+            R.id.action_filter_studio_silverlink -> {
+                item.isChecked = !item.isChecked
+                viewModel.addStudio("300")
                 viewModel.fetchAnimeByStatusAndGenre()
                 true
             }

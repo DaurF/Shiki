@@ -1,38 +1,33 @@
 package mob.dau.ren.shiki.ui
 
 import android.content.Intent
-import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.bumptech.glide.Glide
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.shape.CornerFamily
 import mob.dau.ren.shiki.R
 import mob.dau.ren.shiki.ShikiApplication
 import mob.dau.ren.shiki.databinding.FragmentSingleItemBinding
 import mob.dau.ren.shiki.network.Video
+import mob.dau.ren.shiki.network.getFullImageUrl
 import mob.dau.ren.shiki.repository.ListAnimeRepository
 import mob.dau.ren.shiki.util.BASE_URL
-import mob.dau.ren.shiki.util.smartTruncate
 import mob.dau.ren.shiki.viewmodels.Factory
 import mob.dau.ren.shiki.viewmodels.ListAnimeViewModel
-import java.time.Duration
 
 private const val TAG = "SingleItemFragment"
+
 class SingleItemFragment : Fragment() {
     private val viewModel: ListAnimeViewModel by activityViewModels {
         Factory(
@@ -87,12 +82,13 @@ class SingleItemFragment : Fragment() {
                         openVideo(video.videoUrl)
                     }
                 }
+                uploadImage(studioImage, it.studios[0].getFullImageUrl())
                 uploadShapeableImage(animeImage, BASE_URL + it.image.url)
                 setScore(scoreAnime, it.score)
                 setRating(ratingAnime, it.rating)
                 setStatus(statusAnime, it.status)
                 adapter.submitList(it.genres)
-                it.description?.let { it1 -> setDescription(descriptionAnime, it1.smartTruncate(120)) }
+                it?.description?.let { it1 -> setDescription(descriptionAnime, it1) }
             }
         }
     }
@@ -101,15 +97,15 @@ class SingleItemFragment : Fragment() {
         var updated = description.replace("character", "").replace("[", "")
             .replace("]", "").replace("=", "")
             .replace("/", "").replace("anime", "")
-        for(i in updated) {
-            if(i.isDigit())
+        for (i in updated) {
+            if (i.isDigit())
                 updated = updated.replace("$i", "")
         }
         textView.text = updated
     }
 
     private fun setStatus(textView: TextView, status: String) {
-        when(status) {
+        when (status) {
             "released" -> {
                 textView.setTextColor(requireContext().resources.getColor(R.color.dark_green))
                 textView.text = "Вышло"
@@ -127,7 +123,7 @@ class SingleItemFragment : Fragment() {
     }
 
     private fun setScore(textView: TextView, score: String) {
-        if(score == "0.0") {
+        if (score == "0.0") {
             textView.text = "N/A"
             return
         }
@@ -135,7 +131,7 @@ class SingleItemFragment : Fragment() {
     }
 
     private fun setRating(textView: TextView, rating: String) {
-        when(rating) {
+        when (rating) {
             "r" -> textView.text = requireContext().resources.getString(R.string.R_label)
             "pg_13" -> textView.text = requireContext().resources.getString(R.string.PG_label)
             "g" -> textView.text = requireContext().resources.getString(R.string.G_label)
@@ -146,7 +142,7 @@ class SingleItemFragment : Fragment() {
     }
 
     private fun setKindText(textView: TextView, kind: String) {
-        when(kind) {
+        when (kind) {
             "tv" -> textView.text = requireContext().resources.getString(R.string.tv_label)
             "movie" -> textView.text = requireContext().resources.getString(R.string.film_label)
         }
@@ -168,7 +164,7 @@ class SingleItemFragment : Fragment() {
     private fun uploadImage(imageView: ImageView, imageUrl: String?) {
         imageUrl?.let {
             val imageUri = it.toUri().buildUpon().scheme("https").build()
-            Glide.with(this).load(imageUri).into(imageView)
+            imageView.load(imageUri)
         }
 
     }
@@ -177,7 +173,7 @@ class SingleItemFragment : Fragment() {
         val packageManager = context?.packageManager ?: return
         val httpUri = Uri.parse(url)
         var intent = Intent(Intent.ACTION_VIEW, httpUri)
-        if(intent.resolveActivity(packageManager) == null) {
+        if (intent.resolveActivity(packageManager) == null) {
             intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
         }
         startActivity(intent)

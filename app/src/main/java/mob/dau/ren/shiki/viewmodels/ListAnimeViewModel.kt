@@ -30,7 +30,7 @@ class ListAnimeViewModel(private val repository: ListAnimeRepository) : ViewMode
     }
 
     fun addGenre(genre: String) {
-        if(genres.contains(genre)) {
+        if (genres.contains(genre)) {
             genres.remove(genre)
             return
         }
@@ -38,7 +38,7 @@ class ListAnimeViewModel(private val repository: ListAnimeRepository) : ViewMode
     }
 
     fun addStatus(status: String) {
-        if(statuses.contains(status)){
+        if (statuses.contains(status)) {
             statuses.remove(status)
             return
         }
@@ -46,7 +46,7 @@ class ListAnimeViewModel(private val repository: ListAnimeRepository) : ViewMode
     }
 
     fun addStudio(studio: String) {
-        if(studios.contains(studio)){
+        if (studios.contains(studio)) {
             studios.remove(studio)
             return
         }
