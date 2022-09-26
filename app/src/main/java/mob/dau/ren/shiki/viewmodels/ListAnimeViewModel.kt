@@ -1,8 +1,6 @@
 package mob.dau.ren.shiki.viewmodels
 
-import android.util.Log
 import androidx.lifecycle.*
-import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import mob.dau.ren.shiki.network.AnimeItem
 import mob.dau.ren.shiki.network.FullAnimeItem
@@ -81,9 +79,14 @@ class ListAnimeViewModel(private val repository: ListAnimeRepository) : ViewMode
             .replace("]", "").replace(" ", "")
         val studiosStr = studios.toString().replace("[", "")
             .replace("]", "").replace(" ", "")
-        Log.d("LOX", "$statusesStr : $genresStr : $studiosStr")
         _listAnime.value = ShikimoriNetwork.retrofitService
-            .fetchAnimeByStatusAndGenre(statusesStr, genresStr, studiosStr, searchQuery, "popularity")
+            .fetchAnimeByStatusAndGenre(
+                statusesStr,
+                genresStr,
+                studiosStr,
+                searchQuery,
+                "popularity"
+            )
     }
 }
 

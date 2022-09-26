@@ -1,9 +1,7 @@
 package mob.dau.ren.shiki.ui
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.*
-import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
