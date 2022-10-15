@@ -16,7 +16,8 @@ data class FullAnimeItem(
     val rating: String,
     val duration: String,
     val status: String,
-    val studios: List<Studio?>?
+    val studios: List<Studio?>?,
+    val url: String
 )
 
 data class Video(

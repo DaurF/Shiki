@@ -4,9 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.net.toUri
@@ -39,6 +37,7 @@ class SingleItemFragment : Fragment() {
     private val binding get() = _binding!!
 
     private var id: Int? = null
+    private var url: String? = null
 
     private lateinit var recyclerView: RecyclerView
 
@@ -69,6 +68,7 @@ class SingleItemFragment : Fragment() {
         recyclerView.adapter = adapter
 
         viewModel.singleAnime.observe(viewLifecycleOwner) {
+            url = it.url
             var video: Video? = null
             try {
                 video = it.videos?.get(0)
@@ -97,6 +97,26 @@ class SingleItemFragment : Fragment() {
                 adapter.submitList(it.genres)
                 it?.description?.let { it1 -> setDescription(descriptionAnime, it1) }
             }
+        }
+        setHasOptionsMenu(true)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_single_anime, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId) {
+            R.id.action_share -> {
+                val intent = Intent(Intent.ACTION_SEND)
+                    .setType("text/plain")
+                    .putExtra(Intent.EXTRA_TEXT, BASE_URL.removeSuffix("/") + url)
+                if(activity?.packageManager?.resolveActivity(intent, 0) != null) {
+                    startActivity(intent)
+                }
+                return true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 
